@@ -14,5 +14,6 @@
  </div>
 
     <x-script/>
+    @extends('components.toastr');
 </body>
 </html>

@@ -5,5 +5,5 @@
 <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
 <script src="{{ asset('libs/simplebar/dist/simplebar.min.js')}}"></script>
 <script src="{{ asset('js/dashboard.js') }}"></script>
-
+<script src="{{ asset('libs/toastr/toastr.min.js') }}"></script>
 @stack('script')
