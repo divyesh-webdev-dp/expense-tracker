@@ -16,7 +16,7 @@
                  <x-nav-item route="{{ route('dashboard') }}" icon="ti-layout-dashboard" name="Dashboard" />
                  <x-nav-item-heading name="Transaction Management" />
                  <x-nav-item route="#" icon="ti-currency-rupee" name="Transaction" />
-                 <x-nav-item route="#" icon="ti-category" name="Category" />
+                 <x-nav-item route="{{ route('category.index') }}" icon="ti-category" name="Category" />
                  <x-nav-item route="#" icon="ti-tag" name="Tag" />
                  <x-nav-item-heading name="Budgeting" />
                  <x-nav-item route="#" icon="ti-businessplan" name="Budget" />

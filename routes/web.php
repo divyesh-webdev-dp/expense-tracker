@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ Route::get('/register', function () {
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth');
-Route::get('/logout', [AuthController::class,'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::resource('users', UserController::class);
@@ -32,4 +33,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('dashboard');
+
+    Route::resource('category', CategoryController::class);
+    Route::group(
+        [
+            'prefix' => 'category',
+            'as' => 'category.'
+        ],
+        function () {
+            Route::post('/category/bulk-delete', [CategoryController::class, 'bulkDelete'])->name('bulkDelete');
+            Route::post('/category/bulk-update', [CategoryController::class, 'bulkUpdate'])->name('bulkUpdate');
+        }
+    );
 });
